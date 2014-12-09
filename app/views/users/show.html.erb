@@ -4,11 +4,24 @@
   <strong>First name:</strong>
   <%= @user.first_name %>
 </p>
+<p>
+  <strong>Last name:</strong>
+  <%= @user.last_name %>
+</p>
 
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+
+<p>Showing all of <%= @user.first_name %>'s boards:</p>
+<ul>
+<% @user.boards.each do |board| %>
+<li><%= link_to board.name, board_path(board) %></li>
+<% end %>
+</ul>
+<p><%= @user_message %></p>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

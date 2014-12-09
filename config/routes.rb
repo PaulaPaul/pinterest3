@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'static_pages/home' => "static_pages#home", as: :home
+
+  get 'static_pages/about' => "static_pages#about", as: :about
+
+  delete '/pins' => "pins#delete"
+
+  root to: "static_pages#home"
+
   resources :users
 
   resources :boards

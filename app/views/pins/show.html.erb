@@ -17,7 +17,7 @@
 
 <p>
   <strong>Board:</strong>
-  <%= @pin.board.name %>
+  <%= @pin.board.name  rescue "N/A" %>
 </p>
 
 <%= link_to 'Edit', edit_pin_path(@pin) %> |
