@@ -12,11 +12,7 @@ class PinsController < ApplicationController
   # GET /pins
   # GET /pins.json
   def index
-    if user_signed_in?
-      @pins = current_user.pins
-    else
-      @pins = Pin.all
-    end
+    @pins = current_user.pins.paginate(page: params[:page], per_page: 6)
   end
 
   # GET /pins/1

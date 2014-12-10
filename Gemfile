@@ -46,3 +46,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
 gem 'carrierwave'
 # after bundling this gem you need to "rails g uploader Image" and change views for upload
+
+# include pagination capability
+gem 'will_paginate'
