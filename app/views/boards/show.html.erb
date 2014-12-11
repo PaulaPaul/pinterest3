@@ -15,5 +15,26 @@
   <%= @board.user.first_name %>
 </p>
 
+<strong>Associated Pins:</strong>
+<div id="columns">
+	<% @board.pins.each do |pin| %>
+	<div class="item-background">
+		<div class="pin-image">
+			<%= image_tag(pin.image_url, :width => "100%") %>
+		</div>
+		<div class="item-info">
+			<h3><%= pin.name %></h3>
+			<h4>Board: <%= pin.board.name rescue "none" %></h4>
+			<h4>Create By: <%= pin.user.full_name rescue "none" %></h4>
+		</div>
+		<div class="item-links">
+			<%= link_to 'Edit', edit_pin_path(pin) %> |
+			<%= link_to 'Back', boards_path %>
+			<%= link_to 'Destroy', pin, method: :delete, data: {confirm: 'Are you sure?'} %>
+		</div>
+	</div>
+	<% end %>
+</div>
 <%= link_to 'Edit', edit_board_path(@board) %> |
 <%= link_to 'Back', boards_path %>
+
